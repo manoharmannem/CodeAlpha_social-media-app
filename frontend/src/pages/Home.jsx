@@ -118,14 +118,22 @@ function Home() {
   ];
 });
   useEffect(() => {
-    const savedProfile = JSON.parse(
-      localStorage.getItem("pulseProfile")
-    );
+  const savedUser = JSON.parse(
+    localStorage.getItem("pulseUser")
+  );
 
-    if (savedProfile) {
-      setProfile(savedProfile);
-    }
-  }, []);
+  const savedProfile = JSON.parse(
+    localStorage.getItem("pulseProfile")
+  );
+
+  if (savedUser) {
+    setProfile({
+      username: savedUser.username,
+      bio: savedProfile?.bio || "Welcome to Pulse",
+      photo: savedProfile?.photo || "",
+    });
+  }
+}, []);
 
   useEffect(() => {
     localStorage.setItem(

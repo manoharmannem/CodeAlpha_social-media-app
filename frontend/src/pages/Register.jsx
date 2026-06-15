@@ -11,11 +11,11 @@ function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    const user = {
+    const user = ({
       username,
       email,
       password,
-    };
+    });
 
     localStorage.setItem(
       "registeredUser",
